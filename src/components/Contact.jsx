@@ -5,7 +5,7 @@ import "./Contact.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/amore43035@gmail.com";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/amore43035@gmail.com";
 const SHEET_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbzJo843uNOUS2juBW2ncbkfjiVdphSMKFkwfiFy_kOfWUDB507sJYHdyZ_MRaP-BRs2/exec";
 const WEBSITE_NAME = "Shakti Kale";
@@ -140,22 +140,11 @@ export default function Contact() {
       payload.append("_captcha", "false");
       payload.append("_replyto", form.email.trim());
 
-      const emailRes = await fetch(FORMSUBMIT_ENDPOINT, {
+      await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
         body: payload,
-        headers: {
-          Accept: "application/json",
-        },
+        mode: "no-cors",
       });
-
-      const emailData = await emailRes.json();
-
-      if (
-        !emailRes.ok ||
-        (emailData.success !== "true" && emailData.success !== true)
-      ) {
-        throw new Error("Email submission failed");
-      }
 
       // ---------- SUCCESS ----------
       setSent(true);
