@@ -1,0 +1,21 @@
+.grid-host {
+  position: relative;
+  isolation: isolate;
+}
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-background--front {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-background canvas {
+    display: none;
+  }
+}

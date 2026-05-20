@@ -1,0 +1,466 @@
+/* ── SECTION ──────────────────────────────────────── */
+.reels-section {
+  background: var(--bg);
+  padding: 100px 24px 130px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reels-section > :not(.grid-background) {
+  position: relative;
+  z-index: 1;
+}
+
+.reels-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+/* ── HEADER ───────────────────────────────────────── */
+.reels-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.reels-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.reels-heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── QUOTE ────────────────────────────────────────── */
+.reels-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 0;
+  padding: 0 32px;
+  position: relative;
+}
+
+.reels-quote::before,
+.reels-quote::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: clamp(40px, 8vw, 110px);
+  height: 1px;
+}
+
+.reels-quote::before {
+  right: calc(100% - 28px);
+  background: linear-gradient(to left, rgba(201, 168, 76, 0.3), transparent);
+}
+
+.reels-quote::after {
+  left: calc(100% - 28px);
+  background: linear-gradient(to right, rgba(201, 168, 76, 0.3), transparent);
+}
+
+/* ── GRID ─────────────────────────────────────────── */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  align-items: end;
+  gap: 56px 52px;
+}
+
+/* ── PHONE BODY ───────────────────────────────────── */
+.phone-mock {
+  position: relative;
+  width: clamp(195px, 19.5vw, 275px);
+  aspect-ratio: 9 / 19.5;
+  border-radius: 48px;
+
+  background: linear-gradient(
+    160deg,
+    #222222 0%,
+    #111111 25%,
+    #080808 55%,
+    #0f0f0f 80%,
+    #1e1e1e 100%
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 6px 14px  rgba(0, 0, 0, 0.65),
+    0 24px 60px rgba(0, 0, 0, 0.78),
+    /* bottom color spread */
+    -14px  40px 70px  rgba(236, 72,  153, 0.06),
+     14px  40px 70px  rgba(59,  130, 246, 0.06),
+    0      55px 100px rgba(139, 92,  246, 0.04),
+    /* top color spread */
+    -14px -30px 60px  rgba(59,  130, 246, 0.04),
+     14px -30px 60px  rgba(236, 72,  153, 0.04),
+    0     -45px 90px  rgba(139, 92,  246, 0.03);
+
+  overflow: visible;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.45s ease;
+  cursor: pointer;
+  animation: phoneShadowBreathe 3.5s ease-in-out infinite;
+}
+
+@keyframes phoneShadowBreathe {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(139, 92, 246, 0.08),
+      0 8px 24px rgba(139, 92, 246, 0.12),
+      0 16px 40px rgba(236, 72, 153, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(139, 92, 246, 0.28),
+      0 8px 28px rgba(139, 92, 246, 0.32),
+      0 16px 48px rgba(236, 72, 153, 0.22);
+  }
+}
+
+/* ── BREATHING ANIMATION ──────────────────────────────── */
+@keyframes phoneBreathe {
+  0%, 100% {
+    filter: blur(10px);
+    opacity: 0.5;
+  }
+  50% {
+    filter: blur(14px);
+    opacity: 0.9;
+  }
+}
+
+/* Rainbow ambient light — top and bottom */
+.phone-mock::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  bottom: -24px;
+  left: -8%;
+  right: -8%;
+  background:
+    /* bottom — pink left, blue right, purple center */
+    radial-gradient(ellipse 55% 28% at 22% 100%, rgba(236, 72,  153, 0.38) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 28% at 78% 100%, rgba(59,  130, 246, 0.38) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 28% at 50% 100%, rgba(139, 92,  246, 0.24) 0%, transparent 75%),
+    /* top — flipped: blue left, pink right, purple center */
+    radial-gradient(ellipse 55% 28% at 22% 0%,   rgba(59,  130, 246, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 28% at 78% 0%,   rgba(236, 72,  153, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 28% at 50% 0%,   rgba(139, 92,  246, 0.18) 0%, transparent 75%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: -1;
+  animation: phoneBreathe 3.5s ease-in-out infinite;
+  transition: filter 0.45s ease, opacity 0.45s ease;
+}
+
+/* Rainbow rim light on left edge */
+.phone-mock::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: -1.5px;
+  width: 2.5px;
+  background: linear-gradient(
+    to bottom,
+    transparent            0%,
+    rgba(236, 72,  153, 0.55) 18%,
+    rgba(139, 92,  246, 0.60) 38%,
+    rgba(59,  130, 246, 0.60) 58%,
+    rgba(6,   182, 212, 0.45) 78%,
+    transparent            100%
+  );
+  border-radius: 2px 0 0 2px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.phone-mock:hover {
+  transform: translateY(-18px) scale(1.025);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 8px 20px  rgba(0, 0, 0, 0.7),
+    0 36px 80px rgba(0, 0, 0, 0.85),
+    /* bottom */
+    -22px  55px 100px rgba(236, 72,  153, 0.12),
+     22px  55px 100px rgba(59,  130, 246, 0.12),
+    0      75px 140px rgba(139, 92,  246, 0.09),
+    /* top */
+    -22px -45px 90px  rgba(59,  130, 246, 0.09),
+     22px -45px 90px  rgba(236, 72,  153, 0.09),
+    0     -60px 120px rgba(139, 92,  246, 0.07);
+}
+
+.phone-mock:hover::before {
+  filter: blur(24px);
+  background:
+    /* bottom */
+    radial-gradient(ellipse 55% 28% at 22% 100%, rgba(236, 72,  153, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 28% at 78% 100%, rgba(59,  130, 246, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 28% at 50% 100%, rgba(139, 92,  246, 0.20) 0%, transparent 75%),
+    /* top */
+    radial-gradient(ellipse 55% 28% at 22% 0%,   rgba(59,  130, 246, 0.24) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 28% at 78% 0%,   rgba(236, 72,  153, 0.24) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 28% at 50% 0%,   rgba(139, 92,  246, 0.15) 0%, transparent 75%);
+}
+
+.phone-mock:hover::after {
+  opacity: 1;
+}
+
+/* ── SIDE BUTTONS ─────────────────────────────────── */
+.phone-btn {
+  position: absolute;
+  border-radius: 3px;
+  /* Dark button — matches body */
+  background: linear-gradient(
+    to right,
+    #0a0a0a,
+    #141414
+  );
+  box-shadow: -1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Left side */
+.phone-btn-action {
+  left: -3.5px;
+  top: 12.5%;
+  width: 3.5px;
+  height: 5.5%;
+  border-radius: 2px 0 0 2px;
+}
+
+.phone-btn-vol-up {
+  left: -3.5px;
+  top: 21.5%;
+  width: 3.5px;
+  height: 9%;
+  border-radius: 2px 0 0 2px;
+}
+
+.phone-btn-vol-down {
+  left: -3.5px;
+  top: 33%;
+  width: 3.5px;
+  height: 9%;
+  border-radius: 2px 0 0 2px;
+}
+
+/* Right side */
+.phone-btn-power {
+  right: -3.5px;
+  top: 24%;
+  width: 3.5px;
+  height: 14%;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(to left, #0a0a0a, #141414);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ── GLASS FRONT ──────────────────────────────────── */
+.phone-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 48px;
+  overflow: hidden;
+  background: #000;
+
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.06),
+    -6px 0 28px rgba(236, 72,  153, 0.09),
+    6px  0 28px rgba(59,  130, 246, 0.09),
+    0    0 50px rgba(139, 92,  246, 0.06);
+}
+
+/* ── VIDEO ────────────────────────────────────────── */
+.phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #000;
+}
+
+/* ── DYNAMIC ISLAND ───────────────────────────────── */
+.phone-island {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 3.6%;
+  min-height: 11px;
+  background: #000;
+  border-radius: 50px;
+  z-index: 10;
+  pointer-events: none;
+
+  /* Subtle inner shadow so it reads as a cutout */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* ── GLASS GLARE ──────────────────────────────────── */
+.phone-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255,  0.10)  0%,
+    rgba(236, 72,  153,  0.07) 20%,
+    rgba(139, 92,  246,  0.06) 40%,
+    rgba(59,  130, 246,  0.05) 60%,
+    rgba(6,   182, 212,  0.03) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* ── AUDIO INDICATOR ──────────────────────────────── */
+.phone-audio-indicator {
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 4px 10px 4px 7px;
+  pointer-events: none;
+  animation: audioFadeIn 0.25s ease;
+}
+
+.phone-audio-indicator svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.phone-audio-indicator span {
+  font-family: var(--font-label);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+@keyframes audioFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── HOME BAR ─────────────────────────────────────── */
+.phone-home-bar {
+  position: absolute;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 1300px) {
+  .reels-grid {
+    gap: 44px 32px;
+  }
+
+  .phone-mock {
+    width: clamp(162px, 17.5vw, 228px);
+    border-radius: 40px;
+  }
+
+  .phone-glass {
+    border-radius: 35px;
+  }
+}
+
+@media (max-width: 900px) {
+  .reels-grid {
+    grid-template-columns: repeat(2, auto);
+    gap: 36px 22px;
+  }
+
+  .phone-mock {
+    width: clamp(144px, 28vw, 200px);
+    border-radius: 36px;
+  }
+
+  .phone-glass {
+    border-radius: 31px;
+  }
+}
+
+@media (max-width: 540px) {
+  .reels-section {
+    padding: 72px 16px 90px;
+  }
+
+  .reels-inner {
+    gap: 40px;
+  }
+
+  .reels-grid {
+    grid-template-columns: repeat(2, auto);
+    gap: 28px 16px;
+  }
+
+  .phone-mock {
+    width: clamp(148px, 44vw, 180px);
+    border-radius: 30px;
+  }
+
+  .phone-glass {
+    border-radius: 26px;
+  }
+}
