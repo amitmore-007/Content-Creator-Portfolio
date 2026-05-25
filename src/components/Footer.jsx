@@ -12,7 +12,7 @@ export default function Footer() {
             SHAKTI<span className="footer-logo-accent"> KALE</span>
           </span>
           <p className="footer-tagline">
-            Visual stories that
+            Creating visual stories that
             <br />
             <em>leave a mark.</em>
           </p>
@@ -36,13 +36,25 @@ export default function Footer() {
           </div>
           <div className="footer-nav-col">
             <span className="footer-nav-title">Social</span>
-            <a href="https://www.instagram.com/shakti_kale_official?igsh=bXloeThwd21lOHV3" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/shakti_kale_official?igsh=bXloeThwd21lOHV3"
+              target="_blank"
+              rel="noreferrer"
+            >
               Instagram
             </a>
-            <a href="https://youtube.com/@shaktiscreation?si=PCFuOdUtqskgINOm" target="_blank" rel="noreferrer">
+            <a
+              href="https://youtube.com/@shaktiscreation?si=PCFuOdUtqskgINOm"
+              target="_blank"
+              rel="noreferrer"
+            >
               YouTube
             </a>
-            <a href="https://www.linkedin.com/in/shakti-kale-0b877b30a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/in/shakti-kale-0b877b30a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noreferrer"
+            >
               LinkedIn
             </a>
           </div>
@@ -57,11 +69,6 @@ export default function Footer() {
         </span>
         <span className="footer-location">Pune · India · Worldwide</span>
         <span className="footer-credit">Crafted with obsession</span>
-      </div>
-
-      {/* Big background word */}
-      <div className="footer-bg-word" aria-hidden="true">
-        VISUAL
       </div>
     </footer>
   );

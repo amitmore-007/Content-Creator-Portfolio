@@ -5,7 +5,7 @@ import "./Contact.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/amore43035@gmail.com";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/kaleshakti1@gmail.com";
 const SHEET_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbzJo843uNOUS2juBW2ncbkfjiVdphSMKFkwfiFy_kOfWUDB507sJYHdyZ_MRaP-BRs2/exec";
 const WEBSITE_NAME = "Shakti Kale";
@@ -194,19 +194,15 @@ export default function Contact() {
             <div className="contact-info-item" data-text-fx>
               <span className="contact-info-label">Email</span>
               <a
-                href="mailto:amore43035@gmail.com"
+                href="mailto:kaleshakti1@gmail.com"
                 className="contact-info-value"
               >
-                amore43035@gmail.com
+                kaleshakti1@gmail.com
               </a>
             </div>
             <div className="contact-info-item" data-text-fx>
               <span className="contact-info-label">Based In</span>
               <span className="contact-info-value">Pune, India</span>
-            </div>
-            <div className="contact-info-item" data-text-fx>
-              <span className="contact-info-label">Available For</span>
-              <span className="contact-info-value">Worldwide Projects</span>
             </div>
           </div>
 

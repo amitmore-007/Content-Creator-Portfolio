@@ -184,10 +184,6 @@ export default function CubeShowcase() {
           ))}
         </div>
 
-        <p className="reels-quote" data-fx>
-          "Every frame is a feeling — every cut, a heartbeat."
-        </p>
-
         <div className="reels-grid">
           {PHONE_VIDEOS.slice(4, 8).map((item, i) => (
             <PhoneCard

@@ -25,7 +25,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VisualFlowSection = lazy(() => import("./components/VisualFlowSection"));
 const CubeShowcase = lazy(() => import("./components/CubeShowcase"));
-const Testimonials = lazy(() => import("./components/Testimonials"));
+// const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
 const GalleryPage = lazy(() => import("./components/GalleryPage"));
 
@@ -250,6 +250,7 @@ export default function App() {
           </div>
 
           {/* Testimonials */}
+          {/*
           <DeferredSection minHeight={640} rootMargin="320px 0px">
             <Suspense fallback={<SectionFallback minHeight={640} />}>
               <ScrollReveal>
@@ -257,6 +258,7 @@ export default function App() {
               </ScrollReveal>
             </Suspense>
           </DeferredSection>
+          */}
 
           {/* Visual Flow Story */}
           <DeferredSection minHeight={860} rootMargin="360px 0px">

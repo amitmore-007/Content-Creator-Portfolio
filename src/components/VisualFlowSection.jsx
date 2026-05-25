@@ -125,8 +125,8 @@ export default function VisualFlowSection() {
             <span className="yt-group-tag">Brand Work</span>
           </div>
           <p className="yt-group-desc">
-            A selection of cinematic stories, branded visuals, and creative
-            projects crafted across travel, food, fashion, and digital content.
+            Branded films, institutional campaigns, and commercial visuals
+            created for modern businesses and growing brands.
           </p>
           <div className="yt-grid">
             {BRAND_VIDEOS.map((v) => (
@@ -142,8 +142,8 @@ export default function VisualFlowSection() {
             <span className="yt-group-tag">My Channel</span>
           </div>
           <p className="yt-group-desc">
-            Branded films, institutional campaigns, and commercial visuals
-            created for modern businesses and growing brands.
+            A selection of cinematic stories, branded visuals, and creative
+            projects crafted across travel, food, fashion, and digital content.
           </p>
           <div className="yt-grid">
             {MY_VIDEOS.map((v) => (
